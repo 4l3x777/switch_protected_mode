@@ -20,9 +20,12 @@ use16
 	; INIT DS WITH DATA SELECTOR 		; update the segment registers
 	mov ax, DATA_SEG
     mov ds, ax
-    mov ss, ax
     mov fs, ax
     mov gs, ax
+	
+	; INIT SS WITH STACK SELECTOR
+	mov ax, STACK_SEG
+	mov ss, ax
 	
 	; INIT ES WITH GPU SELECTOR (VIDEO MEMORY)
 	mov ax, GPU_SEG

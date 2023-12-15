@@ -15,6 +15,10 @@ align 8
 ; GDT for data segment. base = 0xb8000, length = 0xffff | Access: RW	
 .gdt_gpu:
 	db 0xff, 0xff, 0x00, 0x80, 0x0b, 0x92, 0x40, 0x00 ; build from DescriptorBuilder
+	
+; GDT for data segment. base = 0x8200, length = 0x200 | Access: RW	
+.gdt_stack:
+	db 0x00, 0x02, 0x00, 0x82, 0x00, 0x92, 0x40, 0x00 ; build from DescriptorBuilder
 
 .gdt_end:
 
@@ -27,3 +31,4 @@ align 8
 CODE_SEG equ .gdt_code - .gdt_start
 DATA_SEG equ .gdt_data - .gdt_start
 GPU_SEG equ .gdt_gpu - .gdt_start
+STACK_SEG equ .gdt_stack - .gdt_start
